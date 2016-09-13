@@ -1,24 +1,32 @@
+int totalScore = 0;
 Die dice1;
 
 void setup()
 {
-	size(400,400);
+	size(400,450);
 	noLoop();
 }
 void draw()
 {
-		background(120,92,171);
+		background((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
 		for(int j = 13; j < 400; j += 100)
 		{
 			for(int i = 13; i < 400; i = i + 100)
 			{
 			dice1 = new Die(i,j);
 			dice1.show();
+			totalScore += dice1.value;
 			}
 		}
+	fill(0);
+	rect(20,400,350,100,10);
+	fill(255);
+	textSize(20);
+	text(" "+ totalScore, 50,425);
 	}
 void mousePressed()
 {
+	totalScore = 0;
 	redraw();
 }
 class Die //models one single dice cube
@@ -48,31 +56,29 @@ class Die //models one single dice cube
 	{
 		//your code here
 
-			noStroke();
-			fill(171,120,92);
+			stroke(255);
+			strokeWeight(5);
+			fill(0);
 			rect(myX,myY,75,75,10);
 
 		if (value == 1)
 		{
-			fill(171,160,92);
+			fill(0);
 			ellipse(myX + 37, myY + 37, 15, 15);
 		}
 		else if (value == 2)
 		{
-			fill(171,160,92);
 			ellipse(myX + 20, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 55, 15, 15);
 		}
 		else if (value == 3)
 		{
-			fill(171,160,92);
 			ellipse(myX + 20, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 55, 15, 15);
 			ellipse(myX + 37, myY + 37, 15, 15);
 		}
 		else if (value == 4)
 		{
-			fill(171,160,92);
 			ellipse(myX + 20, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 55, 15, 15);
@@ -80,7 +86,6 @@ class Die //models one single dice cube
 		}
 		else if (value == 5)
 		{
-			fill(171,160,92);
 			ellipse(myX + 20, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 55, 15, 15);
@@ -89,7 +94,6 @@ class Die //models one single dice cube
 		}
 		else if (value == 6)
 		{
-			fill(171,160,92);
 			ellipse(myX + 20, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 20, 15, 15);
 			ellipse(myX + 55, myY + 55, 15, 15);
