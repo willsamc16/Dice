@@ -19,10 +19,10 @@ void draw()
 			}
 		}
 	fill(0);
-	rect(20,400,350,100,10);
+	rect(20,400,360,40,10);
 	fill(255);
-	textSize(20);
-	text(" "+ totalScore, 50,425);
+	textSize(30);
+	text("Total:"+ totalScore, 140,430);
 	}
 void mousePressed()
 {
